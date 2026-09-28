@@ -1,0 +1,22 @@
+<idea-plugin>
+  <id>dev.nickl0s.opencode-selection-reference</id>
+  <name>OpenCode Selection Reference</name>
+  <vendor email="local@localhost" url="https://opencode.ai">n1ckl0s</vendor>
+
+  <description><![CDATA[
+    Copies a selected editor range as an OpenCode reference, for example
+    <code>@src/main.js#L10-25</code>.
+  ]]></description>
+
+  <depends>com.intellij.modules.platform</depends>
+
+  <actions>
+    <action id="dev.nickl0s.opencode.CopySelectionReference"
+            class="dev.nickl0s.opencode.CopyOpenCodeReferenceAction"
+            text="Copy OpenCode Reference"
+            description="Copy the selected range as @path#Lstart-end">
+      <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+    </action>
+  </actions>
+</idea-plugin>
+
