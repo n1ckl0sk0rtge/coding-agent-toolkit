@@ -6,11 +6,34 @@
   <description><![CDATA[
     Copies a selected editor range as an OpenCode reference, for example
     <code>@src/main.js#L10-25</code>.
+    Open a coding harness in an editor terminal with a keyboard shortcut.
+    The harness command is configurable and defaults to <code>codex</code>.
   ]]></description>
 
   <depends>com.intellij.modules.platform</depends>
+  <depends>org.jetbrains.plugins.terminal</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <applicationConfigurable id="dev.nickl0s.opencode.codingHarness"
+                            parentId="tools"
+                            displayName="Coding Harness"
+                            instance="dev.nickl0s.opencode.CodingHarnessConfigurable"/>
+  </extensions>
+
+  <extensions defaultExtensionNs="org.jetbrains.plugins.terminal">
+    <allowedActionsProvider implementation="dev.nickl0s.opencode.CodingHarnessAllowedActionsProvider"/>
+  </extensions>
 
   <actions>
+    <action id="dev.nickl0s.opencode.OpenCodingHarness"
+            class="dev.nickl0s.opencode.OpenCodingHarnessAction"
+            text="Open Coding Harness in Editor"
+            description="Open an editor terminal at the project root and start the configured coding harness">
+      <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt shift H"/>
+      <keyboard-shortcut keymap="Mac OS X" first-keystroke="meta alt shift H"/>
+      <add-to-group group-id="ToolsMenu" anchor="last"/>
+      <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+    </action>
     <action id="dev.nickl0s.opencode.CopySelectionReference"
             class="dev.nickl0s.opencode.CopyOpenCodeReferenceAction"
             text="Copy OpenCode Reference"

@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "dev.nickl0s"
-version = "1.0.1"
+version = "1.1.0"
 
 repositories {
     mavenCentral()
@@ -20,6 +20,7 @@ dependencies {
 
     intellijPlatform {
         intellijIdea("2026.3")
+        bundledPlugin("org.jetbrains.plugins.terminal")
         testFramework(TestFrameworkType.Platform)
     }
 }
@@ -31,7 +32,8 @@ intellijPlatform {
         }
         changeNotes = """
             <ul>
-              <li>Update compatibility for IntelliJ IDEA 2026.3.</li>
+              <li>Open a coding harness in an editor terminal with a keyboard shortcut.</li>
+              <li>Configure the harness command in Settings, defaulting to Codex.</li>
             </ul>
         """.trimIndent()
     }
