@@ -12,6 +12,8 @@ range, for example `@src/A.java#L12-12`.
 
 ## Build and install
 
+Targets IntelliJ IDEA 2026.3 (platform build 263). Build with JDK 25.
+
 ```sh
 gradle buildPlugin
 ```

@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "dev.nickl0s"
-version = "1.0.0"
+version = "1.0.1"
 
 repositories {
     mavenCentral()
@@ -19,7 +19,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
 
     intellijPlatform {
-        intellijIdea("2026.2.3")
+        intellijIdea("2026.3")
         testFramework(TestFrameworkType.Platform)
     }
 }
@@ -27,11 +27,11 @@ dependencies {
 intellijPlatform {
     pluginConfiguration {
         ideaVersion {
-            sinceBuild = "262"
+            sinceBuild = "263"
         }
         changeNotes = """
             <ul>
-              <li>Initial release: copy a selected editor range as an OpenCode reference.</li>
+              <li>Update compatibility for IntelliJ IDEA 2026.3.</li>
             </ul>
         """.trimIndent()
     }
