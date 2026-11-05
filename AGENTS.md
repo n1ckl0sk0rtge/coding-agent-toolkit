@@ -30,7 +30,7 @@ gh workflow run release.yml --ref release/1.1.0
 
 The manual workflow checks that the branch and project versions match, reruns
 all tests, and builds the installable plugin ZIP. It then creates a **draft**
-GitHub release named `v1.1.0` with `coding-agent-toolkit-1.1.0.zip` and
+GitHub release titled `1.1.0` with tag `v1.1.0`, `coding-agent-toolkit-1.1.0.zip`, and
 `SHA256SUMS` attached. Review the draft under **GitHub → Releases** and publish
 it when ready. Existing tags cannot be reused. Packaging and release creation
 only run when you start this workflow manually.

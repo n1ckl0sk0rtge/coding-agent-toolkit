@@ -57,6 +57,6 @@ jobs:
             "build/distributions/coding-agent-toolkit-${RELEASE_VERSION}.zip" \
             build/distributions/SHA256SUMS \
             --target "$GITHUB_SHA" \
-            --title "Coding Agent Toolkit ${RELEASE_VERSION}" \
+            --title "$RELEASE_VERSION" \
             --generate-notes \
             --draft
