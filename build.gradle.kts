@@ -6,7 +6,13 @@ plugins {
 }
 
 group = "dev.nickl0s"
-version = "1.1.0"
+version = providers.gradleProperty("version").get()
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
 
 repositories {
     mavenCentral()

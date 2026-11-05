@@ -1,0 +1,62 @@
+name: Release
+run-name: Prepare release from ${{ github.ref_name }}
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Build ZIP and create draft release
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out the selected release branch
+        uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK 25
+        uses: actions/setup-java@v6.2.0
+        with:
+          distribution: temurin
+          java-version: '25'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v6.4.1
+
+      - name: Validate release branch and version
+        id: release
+        run: bash .github/scripts/release-metadata.sh
+
+      - name: Test and build the plugin ZIP
+        run: ./gradlew --no-daemon --console=plain check verifyPluginProjectConfiguration buildPlugin
+
+      - name: Generate ZIP checksum
+        working-directory: build/distributions
+        env:
+          RELEASE_VERSION: ${{ steps.release.outputs.version }}
+        run: sha256sum "coding-agent-toolkit-${RELEASE_VERSION}.zip" > SHA256SUMS
+
+      - name: Create draft GitHub release with ZIP
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_VERSION: ${{ steps.release.outputs.version }}
+          RELEASE_TAG: ${{ steps.release.outputs.tag }}
+        run: |
+          gh release create "$RELEASE_TAG" \
+            "build/distributions/coding-agent-toolkit-${RELEASE_VERSION}.zip" \
+            build/distributions/SHA256SUMS \
+            --target "$GITHUB_SHA" \
+            --title "Coding Agent Toolkit ${RELEASE_VERSION}" \
+            --generate-notes \
+            --draft
