@@ -1,2 +1,2 @@
-rootProject.name = "opencode-selection-reference"
+rootProject.name = "coding-agent-toolkit"
 

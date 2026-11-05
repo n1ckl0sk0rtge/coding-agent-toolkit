@@ -1,7 +1,14 @@
-# OpenCode Selection Reference
+# Coding Agent Toolkit
 
-A local JetBrains plugin that opens coding harnesses in editor terminals and
-copies editor selections to the clipboard in OpenCode reference syntax:
+A local JetBrains plugin for working with coding agents:
+
+- Launch a configurable coding harness in an editor terminal.
+- Copy selected code as a project-relative file and line reference.
+
+## Code references
+
+Select code and choose **Copy Code Reference** from the editor context menu to
+copy a reference to the clipboard:
 
 ```text
 @src/main.js#L10-25
@@ -9,6 +16,10 @@ copies editor selections to the clipboard in OpenCode reference syntax:
 
 The path is relative to the project root. One selected line is represented as a
 range, for example `@src/A.java#L12-12`.
+
+To add the action to the selection toolbar, select code, open the floating
+toolbar's **…** menu, choose **Customize Toolbar**, and add **Copy Code Reference**
+under **Floating Code Toolbar**.
 
 ## Coding harness terminal
 
@@ -35,10 +46,8 @@ Targets IntelliJ IDEA 2026.3 (platform build 263). Build with JDK 25.
 ./gradlew buildPlugin
 ```
 
-Install the resulting ZIP from `build/distributions/` using **Settings → Plugins
-→ ⚙ → Install Plugin from Disk…**. Restart the IDE when prompted.
+Install `build/distributions/coding-agent-toolkit-1.1.0.zip` using **Settings →
+Plugins → ⚙ → Install Plugin from Disk…**. Restart the IDE when prompted.
 
-The action appears in the editor context menu as **Copy OpenCode Reference**.
-To add it to the selection toolbar, select code, open the floating toolbar's
-**…** menu, choose **Customize Toolbar**, and add **Copy OpenCode Reference**
-under **Floating Code Toolbar**.
+Previously named **OpenCode Selection Reference**. The plugin and action IDs are
+retained so existing installations and custom keybindings continue to work.

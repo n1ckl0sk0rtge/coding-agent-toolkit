@@ -1,13 +1,16 @@
 <idea-plugin>
   <id>dev.nickl0s.opencode-selection-reference</id>
-  <name>OpenCode Selection Reference</name>
-  <vendor email="local@localhost" url="https://opencode.ai">n1ckl0s</vendor>
+  <name>Coding Agent Toolkit</name>
+  <vendor email="local@localhost">n1ckl0s</vendor>
 
   <description><![CDATA[
-    Copies a selected editor range as an OpenCode reference, for example
-    <code>@src/main.js#L10-25</code>.
-    Open a coding harness in an editor terminal with a keyboard shortcut.
-    The harness command is configurable and defaults to <code>codex</code>.
+    Tools for working with coding agents in your IDE:
+    <ul>
+      <li>Launch a configurable coding harness in an editor terminal with a keyboard shortcut.</li>
+      <li>Copy selected code as a project-relative file and line reference, for example
+          <code>@src/main.js#L10-25</code>.</li>
+    </ul>
+    The harness command defaults to <code>codex</code> and can be changed in Settings.
   ]]></description>
 
   <depends>com.intellij.modules.platform</depends>
@@ -36,7 +39,7 @@
     </action>
     <action id="dev.nickl0s.opencode.CopySelectionReference"
             class="dev.nickl0s.opencode.CopyOpenCodeReferenceAction"
-            text="Copy OpenCode Reference"
+            text="Copy Code Reference"
             description="Copy the selected range as @path#Lstart-end">
       <add-to-group group-id="EditorPopupMenu" anchor="last"/>
     </action>
