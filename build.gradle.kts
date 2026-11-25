@@ -27,6 +27,8 @@ dependencies {
     intellijPlatform {
         intellijIdea("2026.3")
         bundledPlugin("com.intellij.platform.vcs")
+        bundledModule("intellij.platform.vcs.core")
+        bundledModule("intellij.platform.vcs.shared")
         bundledModule("intellij.platform.vcs.impl.shared")
         testFramework(TestFrameworkType.Platform)
     }

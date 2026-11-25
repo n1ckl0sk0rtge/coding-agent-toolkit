@@ -22,8 +22,8 @@ under **Floating Code Toolbar**.
 In **Settings → Keymap**, search for **Toggle File Inclusion in Commit** and
 assign a shortcut. With either pane of a Commit diff focused, press it to toggle
 the whole-file checkbox for the displayed changelist entry. A partially included
-file becomes fully included. The action is available in text diffs that have
-IntelliJ's whole-file inclusion checkbox.
+file becomes fully included. The shortcut also works in the one-sided Commit
+diff for newly added files.
 
 ## Build and install
 
