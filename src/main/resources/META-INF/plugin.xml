@@ -6,9 +6,14 @@
   <description><![CDATA[
     Copy selected code as a project-relative file and line reference, for example
     <code>@src/main.js#L10-25</code>.
+    Use a configurable shortcut to toggle a file's inclusion from the Commit diff.
   ]]></description>
 
   <depends>com.intellij.modules.platform</depends>
+  <depends optional="true" config-file="commit-diff.xml">com.intellij.modules.vcs</depends>
+  <dependencies>
+    <module name="intellij.platform.vcs.impl.shared"/>
+  </dependencies>
 
   <actions>
     <action id="dev.nickl0s.opencode.CopySelectionReference"

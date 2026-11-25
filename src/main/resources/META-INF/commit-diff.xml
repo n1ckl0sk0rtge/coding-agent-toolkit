@@ -1,0 +1,8 @@
+<idea-plugin>
+  <actions>
+    <action id="dev.nickl0s.opencode.ToggleFileInclusionInCommit"
+            class="dev.nickl0s.opencode.ToggleFileInclusionInCommitAction"
+            text="Toggle File Inclusion in Commit"
+            description="Include or exclude the whole file shown in the Commit diff"/>
+  </actions>
+</idea-plugin>

@@ -26,6 +26,8 @@ dependencies {
 
     intellijPlatform {
         intellijIdea("2026.3")
+        bundledPlugin("com.intellij.platform.vcs")
+        bundledModule("intellij.platform.vcs.impl.shared")
         testFramework(TestFrameworkType.Platform)
     }
 }
@@ -39,6 +41,7 @@ intellijPlatform {
             <ul>
               <li>Rename the plugin to Coding Agent Toolkit.</li>
               <li>Remove the coding harness launcher and its settings.</li>
+              <li>Add a customizable shortcut to toggle whole-file inclusion from the Commit diff.</li>
             </ul>
         """.trimIndent()
     }
