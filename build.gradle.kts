@@ -26,7 +26,6 @@ dependencies {
 
     intellijPlatform {
         intellijIdea("2026.3")
-        bundledPlugin("org.jetbrains.plugins.terminal")
         testFramework(TestFrameworkType.Platform)
     }
 }
@@ -39,8 +38,7 @@ intellijPlatform {
         changeNotes = """
             <ul>
               <li>Rename the plugin to Coding Agent Toolkit.</li>
-              <li>Open a coding harness in an editor terminal with a keyboard shortcut.</li>
-              <li>Configure the harness command in Settings, defaulting to Codex.</li>
+              <li>Remove the coding harness launcher and its settings.</li>
             </ul>
         """.trimIndent()
     }
